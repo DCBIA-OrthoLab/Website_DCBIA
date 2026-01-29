@@ -1,4 +1,3 @@
-// ===== NAVIGATION & SCROLL ===== 
 class NavigationManager {
     constructor() {
         this.navbar = document.querySelector('.navbar');
@@ -19,30 +18,25 @@ class NavigationManager {
         this.setupNavbarScrollEffect();
     }
 
-    // Menu mobile hamburger
     setupMobileMenu() {
         this.hamburger?.addEventListener('click', () => {
             this.hamburger.classList.toggle('active');
             this.navMenu?.classList.toggle('active');
         });
 
-        // Fermer le menu mobile lors du clic sur un lien
         this.navLinks.forEach(link => {
             link.addEventListener('click', () => {
-                // Toujours fermer le menu mobile
                 this.hamburger?.classList.remove('active');
                 this.navMenu?.classList.remove('active');
             });
         });
     }
 
-    // Défilement fluide vers les sections
     setupSmoothScrolling() {
         this.navLinks.forEach(link => {
             link.addEventListener('click', (e) => {
                 const href = link.getAttribute('href');
                 
-                // Ne prévenir le comportement par défaut que pour les liens internes (commençant par #)
                 if (href && href.startsWith('#')) {
                     e.preventDefault();
                     const targetId = href.substring(1);
@@ -52,7 +46,6 @@ class NavigationManager {
                         this.scrollToSection(targetSection);
                     }
                 }
-                // Laisser les autres liens (vers d'autres pages) fonctionner normalement
             });
         });
     }
@@ -65,7 +58,6 @@ class NavigationManager {
         });
     }
 
-    // Effet de transparence de la navbar au scroll
     setupNavbarScrollEffect() {
         this.scrollContainer?.addEventListener('scroll', () => {
             const scrollTop = this.scrollContainer.scrollTop;
@@ -78,7 +70,6 @@ class NavigationManager {
         });
     }
 
-    // Mise à jour de la navigation active
     setupActiveNavigation() {
         const observerOptions = {
             threshold: 0.6,
@@ -107,7 +98,6 @@ class NavigationManager {
         });
     }
 
-    // Indicateur de progression de scroll
     setupScrollIndicator() {
         const scrollIndicator = document.createElement('div');
         scrollIndicator.className = 'scroll-progress';
@@ -126,7 +116,6 @@ class NavigationManager {
     }
 }
 
-// ===== ANIMATIONS & EFFECTS =====
 class AnimationManager {
     constructor() {
         this.init();
@@ -139,7 +128,6 @@ class AnimationManager {
         this.setupTypingEffect();
     }
 
-    // Animations au scroll
     setupScrollAnimations() {
         const observerOptions = {
             threshold: 0.1,
@@ -154,7 +142,6 @@ class AnimationManager {
             });
         }, observerOptions);
 
-        // Observer les éléments à animer
         const animatedElements = document.querySelectorAll(
             '.team-member, .project-card, .stat-item, .presentation-text, .news-item, .event-item, .resource-card'
         );
@@ -165,7 +152,6 @@ class AnimationManager {
         });
     }
 
-    // Animation des compteurs dans les statistiques
     setupCounterAnimations() {
         const statNumbers = document.querySelectorAll('.stat-number');
         
@@ -201,10 +187,9 @@ class AnimationManager {
         statNumbers.forEach(stat => observer.observe(stat));
     }
 
-    // Ajouter les initiales aux photos placeholders
     setupTeamInitials() {
         const teamMembers = document.querySelectorAll('.team-member');
-        const initials = ['LC', 'JP', 'BP', 'JB', 'MS', 'AR']; // Initials for 6 main team members
+        const initials = ['LC', 'JP', 'BP', 'JB', 'MS', 'AR'];
         
         teamMembers.forEach((member, index) => {
             const placeholder = member.querySelector('.photo-placeholder');
@@ -214,7 +199,6 @@ class AnimationManager {
         });
     }
 
-    // Effet de frappe pour le titre principal
     setupTypingEffect() {
         const titleLines = document.querySelectorAll('.title-line');
         
@@ -241,7 +225,6 @@ class AnimationManager {
     }
 }
 
-// ===== UTILITAIRES =====
 class Utils {
     static debounce(func, wait) {
         let timeout;
@@ -269,10 +252,8 @@ class Utils {
     }
 }
 
-// ===== CSS ANIMATIONS SUPPLÉMENTAIRES =====
 const additionalStyles = `
 <style>
-/* Barre de progression de scroll */
 .scroll-progress {
     position: fixed;
     top: 0;
@@ -290,7 +271,6 @@ const additionalStyles = `
     transition: width 0.3s ease;
 }
 
-/* Animations d'entrée pour les éléments */
 .animate-element {
     opacity: 0;
     transform: translateY(30px);
@@ -302,7 +282,6 @@ const additionalStyles = `
     transform: translateY(0);
 }
 
-/* Navigation active */
 .nav-link.active {
     color: var(--primary-color);
 }
@@ -311,35 +290,6 @@ const additionalStyles = `
     width: 100%;
 }
 
-/* Navbar avec effet scroll - DÉSACTIVÉ pour transparence permanente */
-/*
-.navbar.scrolled {
-    background: rgba(255, 255, 255, 0.98);
-    box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
-}
-*/
-
-/* Animation des particules - DÉSACTIVÉE */
-/*
-@keyframes floatParticle {
-    0% {
-        transform: translateY(100vh) rotate(0deg);
-        opacity: 0;
-    }
-    10% {
-        opacity: 1;
-    }
-    90% {
-        opacity: 1;
-    }
-    100% {
-        transform: translateY(-100px) rotate(360deg);
-        opacity: 0;
-    }
-}
-*/
-
-/* Animation de slide pour les messages */
 @keyframes slideIn {
     from {
         transform: translateY(-20px);
@@ -351,7 +301,6 @@ const additionalStyles = `
     }
 }
 
-/* Améliorations du hamburger */
 .hamburger.active .bar:nth-child(2) {
     opacity: 0;
 }
@@ -364,7 +313,6 @@ const additionalStyles = `
     transform: translateY(-8px) rotate(-45deg);
 }
 
-/* Effet de focus amélioré pour l'accessibilité */
 .nav-link:focus,
 .btn:focus,
 input:focus,
@@ -373,14 +321,12 @@ textarea:focus {
     outline-offset: 2px;
 }
 
-/* Transitions fluides pour les cartes */
 .team-member,
 .project-card,
 .stat-item {
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
-/* Amélioration des hovers */
 .project-card:hover .project-title {
     color: var(--primary-color);
 }
@@ -391,16 +337,12 @@ textarea:focus {
 </style>
 `;
 
-// ===== INITIALISATION =====
 document.addEventListener('DOMContentLoaded', () => {
-    // Injecter les styles additionnels
     document.head.insertAdjacentHTML('beforeend', additionalStyles);
     
-    // Initialiser tous les composants
     new NavigationManager();
     new AnimationManager();
     
-    // Préloader pour une meilleure performance
     const preloader = document.createElement('div');
     preloader.style.cssText = `
         position: fixed;
@@ -429,7 +371,6 @@ document.addEventListener('DOMContentLoaded', () => {
     
     document.body.appendChild(preloader);
     
-    // Ajouter l'animation de rotation
     const spinStyle = document.createElement('style');
     spinStyle.textContent = `
         @keyframes spin {
@@ -439,7 +380,6 @@ document.addEventListener('DOMContentLoaded', () => {
     `;
     document.head.appendChild(spinStyle);
     
-    // Masquer le preloader après le chargement
     window.addEventListener('load', () => {
         setTimeout(() => {
             preloader.style.opacity = '0';
@@ -453,12 +393,10 @@ document.addEventListener('DOMContentLoaded', () => {
     console.log('🚀 DCBIA Website initialized successfully!');
 });
 
-// ===== ERROR HANDLING =====
 window.addEventListener('error', (e) => {
     console.error('JavaScript Error:', e.error);
 });
 
-// Export pour utilisation modulaire si nécessaire
 if (typeof module !== 'undefined' && module.exports) {
     module.exports = {
         NavigationManager,

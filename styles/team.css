@@ -1,41 +1,33 @@
-/* ===== TEAM PAGE STYLES ===== */
 .team-page {
     background: var(--background);
     min-height: 100vh;
 }
-
 .team-content {
-    padding-top: 80px; /* Account for fixed navbar */
+    padding-top: 80px; 
 }
-
 .team-hero {
     background: var(--gradient-hero);
     color: white;
     padding: var(--spacing-3xl) 0;
     text-align: center;
 }
-
 .page-title {
     font-size: var(--font-size-5xl);
     font-weight: 700;
     margin-bottom: var(--spacing-md);
     line-height: 1.2;
 }
-
 .page-subtitle {
     font-size: var(--font-size-xl);
     opacity: 0.9;
     max-width: 600px;
     margin: 0 auto;
 }
-
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
 }
-
-/* ===== UNIVERSITY SECTIONS ===== */
 .university-section {
     margin: var(--spacing-3xl) 0;
     background: var(--surface);
@@ -44,34 +36,28 @@
     box-shadow: var(--shadow-lg);
     border: 1px solid var(--border-color);
 }
-
 .university-header {
     text-align: center;
     margin-bottom: var(--spacing-3xl);
     border-bottom: 3px solid var(--primary-color);
     padding-bottom: var(--spacing-lg);
 }
-
 .university-title {
     font-size: var(--font-size-3xl);
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: var(--spacing-sm);
 }
-
 .university-location {
     font-size: var(--font-size-lg);
     color: var(--text-secondary);
     font-weight: 500;
 }
-
-/* ===== TEAM GRID ===== */
 .team-grid-full {
     display: grid;
     grid-template-columns: 1fr;
     gap: var(--spacing-xl);
 }
-
 .team-member-full {
     display: grid;
     grid-template-columns: 200px 1fr;
@@ -82,19 +68,16 @@
     transition: var(--transition-base);
     border: 1px solid var(--border-color);
 }
-
 .team-member-full:hover {
     box-shadow: var(--shadow-lg);
     transform: translateY(-5px);
     border-color: var(--primary-color);
 }
-
 .member-photo-large {
     display: flex;
     justify-content: center;
     align-items: flex-start;
 }
-
 .photo-placeholder-large {
     width: 150px;
     height: 150px;
@@ -108,35 +91,29 @@
     font-weight: 700;
     box-shadow: var(--shadow-md);
 }
-
 .member-details h3 {
     font-size: var(--font-size-2xl);
     font-weight: 700;
     color: var(--text-primary);
     margin-bottom: var(--spacing-xs);
 }
-
 .member-details .member-role {
     font-size: var(--font-size-lg);
     color: var(--primary-color);
     font-weight: 600;
     margin-bottom: var(--spacing-md);
 }
-
 .member-details .member-bio {
     font-size: var(--font-size-md);
     color: var(--text-secondary);
     line-height: 1.7;
     margin-bottom: var(--spacing-lg);
 }
-
-/* ===== EXPERTISE TAGS ===== */
 .member-expertise {
     display: flex;
     flex-wrap: wrap;
     gap: var(--spacing-sm);
 }
-
 .expertise-tag {
     background: var(--gradient-primary);
     color: white;
@@ -147,25 +124,19 @@
     text-transform: uppercase;
     letter-spacing: 0.5px;
 }
-
-/* ===== NAVIGATION OVERRIDE ===== */
 .team-page .nav-link {
     color: white;
     font-weight: 600;
 }
-
 .team-page .nav-link:hover {
     color: var(--primary-color);
 }
-
 .team-page .navbar.scrolled .nav-link {
     color: var(--text-primary);
 }
-
 .team-page .navbar.scrolled .nav-link:hover {
     color: var(--primary-color);
 }
-
 .member-photo-large img {
     width: 120px;
     height: 120px;
@@ -177,226 +148,177 @@
     border: 3px solid var(--border-light);
     transition: var(--transition-base);
 }
-
 .member-photo-large img:hover {
     border-color: var(--primary-color);
     transform: scale(1.05);
 }
-
-/* ===== RESPONSIVE DESIGN ===== */
-
-/* Tablettes et petits laptops */
 @media (max-width: 1024px) {
     .container {
         max-width: 90%;
         padding: 0 var(--spacing-lg);
     }
-    
     .team-hero {
         padding: var(--spacing-3xl) var(--spacing-lg);
     }
-    
     .university-section {
         margin: var(--spacing-2xl) 0;
         padding: var(--spacing-2xl);
     }
-    
     .team-member-full {
         grid-template-columns: 200px 1fr;
         gap: var(--spacing-xl);
     }
-    
     .photo-placeholder-large {
         width: 180px;
         height: 180px;
     }
 }
-
-/* Tablettes */
 @media (max-width: 768px) {
     .container {
         padding: 0 var(--spacing-md);
     }
-    
     .page-title {
         font-size: var(--font-size-3xl);
         line-height: 1.2;
         text-align: center;
     }
-    
     .page-subtitle {
         font-size: var(--font-size-lg);
         text-align: center;
         margin: var(--spacing-lg) 0;
     }
-    
     .team-hero {
         padding: var(--spacing-2xl) var(--spacing-md);
         text-align: center;
     }
-    
     .university-section {
         margin: var(--spacing-xl) 0;
         padding: var(--spacing-xl);
     }
-    
     .university-title {
         font-size: var(--font-size-2xl);
         text-align: center;
         margin-bottom: var(--spacing-lg);
     }
-    
     .team-member-full {
         grid-template-columns: 1fr;
         text-align: center;
         gap: var(--spacing-lg);
         padding: var(--spacing-xl);
     }
-    
     .photo-placeholder-large {
         width: 140px;
         height: 140px;
         font-size: var(--font-size-3xl);
         margin: 0 auto;
     }
-    
     .member-photo-large img {
         width: 140px;
         height: 140px;
     }
-    
     .member-details {
         text-align: center;
     }
-    
     .member-details h3 {
         font-size: var(--font-size-xl);
         margin-bottom: var(--spacing-sm);
     }
-    
     .member-role {
         font-size: var(--font-size-base);
         margin-bottom: var(--spacing-md);
     }
-    
     .member-bio {
         font-size: var(--font-size-sm);
         line-height: 1.6;
         margin-bottom: var(--spacing-lg);
     }
-    
     .member-expertise {
         justify-content: center;
         flex-wrap: wrap;
     }
-    
     .expertise-tag {
         font-size: var(--font-size-xs);
         padding: var(--spacing-xs) var(--spacing-sm);
     }
 }
-
-/* Mobiles */
 @media (max-width: 480px) {
     .container {
         padding: 0 var(--spacing-sm);
     }
-    
     .team-hero {
         padding: var(--spacing-xl) var(--spacing-sm);
     }
-    
     .page-title {
         font-size: var(--font-size-2xl);
     }
-    
     .page-subtitle {
         font-size: var(--font-size-base);
     }
-    
     .university-section {
         margin: var(--spacing-lg) 0;
         padding: var(--spacing-lg);
         border-radius: var(--radius-md);
     }
-    
     .university-title {
         font-size: var(--font-size-xl);
         margin-bottom: var(--spacing-md);
     }
-    
     .team-member-full {
         padding: var(--spacing-lg);
         gap: var(--spacing-md);
     }
-    
     .photo-placeholder-large {
         width: 120px;
         height: 120px;
         font-size: var(--font-size-2xl);
     }
-    
     .member-photo-large img {
         width: 120px;
         height: 120px;
     }
-    
     .member-details h3 {
         font-size: var(--font-size-lg);
     }
-    
     .member-role {
         font-size: var(--font-size-sm);
     }
-    
     .member-bio {
         font-size: var(--font-size-xs);
         line-height: 1.5;
     }
-    
     .member-expertise {
         gap: var(--spacing-xs);
     }
-    
     .expertise-tag {
         font-size: 0.65rem;
         padding: 2px var(--spacing-xs);
     }
 }
-
-/* Très petits écrans */
 @media (max-width: 320px) {
     .container {
         padding: 0 var(--spacing-xs);
     }
-    
     .team-hero {
         padding: var(--spacing-lg) var(--spacing-xs);
     }
-    
     .page-title {
         font-size: var(--font-size-xl);
     }
-    
     .university-section {
         margin: var(--spacing-md) 0;
         padding: var(--spacing-md);
     }
-    
     .university-title {
         font-size: var(--font-size-lg);
     }
-    
     .team-member-full {
         padding: var(--spacing-md);
     }
-    
     .photo-placeholder-large {
         width: 100px;
         height: 100px;
         font-size: var(--font-size-xl);
     }
-    
     .member-photo-large img {
         width: 100px;
         height: 100px;
